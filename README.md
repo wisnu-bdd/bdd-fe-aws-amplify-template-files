@@ -37,4 +37,4 @@ cp templates/.env.example .env
 
 ## Resources
 
-1. Configuration & usage of `.env` file in **Vite** projects [=>](https://vite.dev/guide/env-and-mode)
+1. Configuration & usage of `.env` file in **Vite** projects => ([see here](https://vite.dev/guide/env-and-mode))

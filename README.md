@@ -30,3 +30,7 @@ cp templates/.env.example .env
 2. **Update the `.env` file** with project specific values
 
 3. **Connect your repo to AWS Amplify**, then configure the build settings to use the `amplify.yml`
+
+## Note
+
+1. For **pnpm monorepo**, no `.env` file should be added to the root level. Add the necessary `.env` file to each **package** (within `packages` directory) or **app** (within `apps` directory)

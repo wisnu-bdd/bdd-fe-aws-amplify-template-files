@@ -20,12 +20,13 @@ An example environment variable file to manage secrets and configuration at buil
 
 ## 🚀 How to Use
 
-1. **Copy the files** into your project root:
+<!-- 1. **Copy the files** into your project root:
 
 ```bash
 cp templates/amplify.yml ./amplify.yml
 cp templates/.env.example .env
-```
+``` -->
+1. **Copy the files** into your project root
 
 2. **Update the `.env` file** with project specific values
 

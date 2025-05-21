@@ -34,3 +34,7 @@ cp templates/.env.example .env
 ## Note
 
 1. For **pnpm monorepo**, no `.env` file should be added to the root level. Add the necessary `.env` file to each **package** (within `packages` directory) or **app** (within `apps` directory)
+
+## Resources
+
+1. Configuration & usage of `.env` file in **Vite** projects [=>](https://vite.dev/guide/env-and-mode)

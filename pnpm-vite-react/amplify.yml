@@ -1,0 +1,27 @@
+version: 1.0
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - corepack enable # Enable pnpm if needed
+        - corepack prepare pnpm@{{VERSION}} --activate # Ensure the compatible pnpm version used for development
+        - pnpm install --frozen-lockfile # To make installation of modules follow lockfile dependencies versions
+        # - pnpm install # To install while updating dependencies
+    build:
+      commands:
+        - pnpm run build
+        # - if [ "${AWS_BRANCH}" = "main" ];
+        #   then
+        #   npm run build:prod;
+        #   else
+        #   npm run build:stag;
+        #   fi
+        #   fi
+  artifacts:
+    baseDirectory: dist # Output direcotyr for Vite apps
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .pnpm-store/**/*

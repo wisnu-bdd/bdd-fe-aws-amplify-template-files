@@ -1,0 +1,37 @@
+version: 0.1
+frontend:
+  runtime:
+    name: node
+    version: {{VERSION}} # Ensure the compatible pnpm version used for development
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - echo "ENV=$ENV" >> $ENV_FILE
+        - echo "HTTPS=$HTTPS" >> $ENV_FILE
+        - echo "VITE_BACKEND_URL=$VITE_BACKEND_URL" >> $ENV_FILE
+    build:
+      commands:
+        - if [ "${AWS_BRANCH}" = "main" ];
+          then
+          npm run build:prod;
+          else
+          npm run build:stag;
+          fi
+          fi
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  customHeaders:
+    - pattern: "**/*"
+      headers:
+        - key: "Access-Control-Allow-Origin"
+          value: "*"
+        - key: "Access-Control-Allow-Methods"
+          value: "GET, POST, OPTIONS"
+        - key: "Access-Control-Allow-Headers"
+          value: "Content-Type, Authorization, X-Requested-With"
+  cache:
+    paths:
+      - node_modules/**/*

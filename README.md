@@ -30,7 +30,9 @@ cp templates/.env.example .env
 
 2. **Update the `.env` file** with project specific values
 
-3. **Connect your repo to AWS Amplify**, then configure the build settings to use the `amplify.yml`
+3. **Update the `amplify.yml` file** with project specific versions & additional configurations (if necessary)
+
+4. **Connect your repo to AWS Amplify**, then configure the build settings to use the `amplify.yml`
 
 ## Note
 
